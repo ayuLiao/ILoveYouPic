@@ -37,7 +37,7 @@ class GUI(object):
 
     def get_img(self):
         global IMGPATH
-        # filenames = askopenfilenames(filetypes=[("*.png", "*.jpeg", "*.jpg")])
+        # 选择文件
         filenames = askopenfilenames(filetypes=(("jpeg img", "*.jpeg"), ("jpg img", "*.jpg"), ("png img", "*.png")))
         if len(filenames) > 0:
             fnlist = [fn for fn in filenames]
@@ -53,7 +53,7 @@ class GUI(object):
         for imgpath in IMGPATH:
             filepath,tempfilename = os.path.split(imgpath)
             filename,extension = os.path.splitext(tempfilename)
-            savepath =  f'{filename}.{extension}'
+            savepath =  f'{filename}_gen{extension}'
             gen_love_you_img(imgpath, savepath)
             respathlist.append(savepath)
         respath = ' '.join(respathlist)
